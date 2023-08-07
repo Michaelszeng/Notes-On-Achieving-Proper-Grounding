@@ -45,14 +45,29 @@ This video is freaking blowing my mind.
       - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/a151a9ba-3b61-4cf6-8a61-e78bd81ff5fa)
       - This way, signals will use the GND traces for return path --> performed way better
      
-  - Caution for 4-layer boards:
-    - Typical Stackup (note the spacing btwn layer 2, 3):
-    - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/519117ad-1dd7-4b04-9135-5b1e907dd1a5)
-    - Both signals on layer 1 and 2 try to use layer 3 as return path:
-    - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/999fd993-729a-4ddd-ba8a-6d7a48270500)
-    - Signals on layer 1 and 2 that cross over each other --> E/B-fields couple --> severe EMI (not a signal integrity problem though)
-    - SOLUTION: Route signals on layer 1 as triplets (GND traces between pairs of signal traces; see above)
+- Caution for 4-layer boards:
+  - Typical Stackup (note the spacing btwn layer 2, 3):
+  - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/519117ad-1dd7-4b04-9135-5b1e907dd1a5)
+  - Both signals on layer 1 and 2 try to use layer 3 as return path:
+  - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/999fd993-729a-4ddd-ba8a-6d7a48270500)
+  - Signals on layer 1 and 2 that cross over each other --> E/B-fields couple --> severe EMI (not a signal integrity problem though)
+  - SOLUTION: Route signals on layer 1 as triplets (GND traces between pairs of signal traces; see above)
 
+- Note: PWR (instead of GND) can also be used as return path for a signal IF PWR plane/trace is identical to the source driving the signal
+  - Best for the PWR plane/trace that is the return path to be on the same layer (no explanation provided)
+
+- When moving energy between layers, route on either side of same GND plane
+  - This way, E/B-fields stay around the same plane, don't spread --> no interferance/EMI
+  - If not possible, put a GND via(s) very nearby. GND via will help guide/contain the E/B-fields (will remain between the signal and GND via)
+
+- Component placement
+  - Analog in 1 area, digital in another
+  - Keep different operating voltages in different places
+  - For inter-board conns, put conns as close to IC as possible (or noise will go into next board + wires will act as antennas --> EMI failure)
+  - Avoid routing traces of different voltage/type in an area
 
 ## PRACTICAL TAKE-AWAYS:
-- Route signals with respect to GND like you actually mean it (have a low-impedance GND nearby)
+- Route signals with respect to GND (or PWR) like you actually mean it (have a low-impedance GND nearby)
+- Use GND plane if possible
+- If EMI is a concern, be extremely cautious of signals on different layers crossing over each other. See above for solutions to this problem.
+- 
