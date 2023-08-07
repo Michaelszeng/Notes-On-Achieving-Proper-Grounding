@@ -29,3 +29,4 @@
   - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/331ecb3a-7388-44fc-b96b-0f7b9ce5444c)
   - Intuition: when the return path is not clear, the E/B-fields spread everywhere attempting to find a way back toward the source
   - SUMMARY: KEEP THE GND BENEATH TRACES WIDE & INTACT.
+    - Also: NEVER route traces across splits in GND plane. 20-30 db of noise --> failing your SDoC tests
