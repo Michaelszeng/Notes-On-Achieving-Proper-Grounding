@@ -27,4 +27,5 @@
   - Fig. 1 demonstrates a solid GND plane; Fig. 3 demonstrates a solid, uninterrupted GND beneath the trace; Fig. 2 demonstrates a single large disturbance to the GND path below the trace, and Fig. 4 demonstrates many small disturbances to the GND path below the trace.
   - Here's how the EMI of all compare:
   - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/331ecb3a-7388-44fc-b96b-0f7b9ce5444c)
+  - Intuition: when the return path is not clear, the E/B-fields spread everywhere attempting to find a way back toward the source
   - SUMMARY: KEEP THE GND BENEATH TRACES WIDE & INTACT.
