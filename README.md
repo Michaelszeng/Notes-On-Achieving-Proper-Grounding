@@ -7,4 +7,12 @@
 
 - The reason cross-talk and interferance exist is that the E/B-fields collide.
 
+- KEY TO LOWERING IMPEDNACE (decreasing inductance and increasing capacitance)
+  - impendance to change in current
+  - caused by inertia of E/B-field
+  - To lower inductance:
+    - Keep field volume low
+    - i.e. put GND plane as close as possible to signal trace (minimize the gap between forward and return paths, which is the space available for the E/B-fields
+  - SUMMARY: KEEP FORWARD/RETURN PATHS CLOSE TOGETHER!
+ 
 - 
