@@ -1,5 +1,9 @@
 # Notes-On-Achieving-Proper-Grounding
 
+https://www.youtube.com/watch?v=ySuUZEjARPY
+
+This video is freaking blowing my mind.
+
 - Energy doesn't travel thru V or I, rather through E/B-fields that propogate around traces. The current passing through traces simply induces and guides these fields, exactly like a waveguide.
   ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/b8861f8f-9e6a-4b40-a00c-1d5279f40021)
 
@@ -30,3 +34,25 @@
   - Intuition: when the return path is not clear, the E/B-fields spread everywhere attempting to find a way back toward the source
   - SUMMARY: KEEP THE GND BENEATH TRACES WIDE & INTACT.
     - Also: NEVER route traces across splits in GND plane. 20-30 db of noise --> failing your SDoC tests
+   
+  - Case Study:
+    - This PCB was emitting tons of EMI + not working.
+    - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/42ed3d25-6915-4091-be4c-6428265a57d0)
+    - Notice: traces crossing vertically and horizontally on adjacent layers
+      - These is is like routing across a massive split in the GND plane
+      - Traces in each layer were trying to use each other as return paths --> cross-talk
+    - SOLUTION: if you MUST route traces like this on adjacent layers, put GND traces (shown in white) between the adjacent signal traces on both layers
+      - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/a151a9ba-3b61-4cf6-8a61-e78bd81ff5fa)
+      - This way, signals will use the GND traces for return path --> performed way better
+     
+  - Caution for 4-layer boards:
+    - Typical Stackup (note the spacing btwn layer 2, 3):
+    - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/519117ad-1dd7-4b04-9135-5b1e907dd1a5)
+    - Both signals on layer 1 and 2 try to use layer 3 as return path:
+    - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/999fd993-729a-4ddd-ba8a-6d7a48270500)
+    - Signals on layer 1 and 2 that cross over each other --> E/B-fields couple --> severe EMI (not a signal integrity problem though)
+    - SOLUTION: Route signals on layer 1 as triplets (GND traces between pairs of signal traces; see above)
+
+
+## PRACTICAL TAKE-AWAYS:
+- Route signals with respect to GND like you actually mean it (have a low-impedance GND nearby)
