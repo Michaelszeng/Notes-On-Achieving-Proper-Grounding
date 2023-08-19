@@ -2,8 +2,6 @@
 
 https://www.youtube.com/watch?v=ySuUZEjARPY
 
-This video is freaking blowing my mind.
-
 - Energy doesn't travel thru V or I, rather through E/B-fields that propogate around traces. The current passing through traces simply induces and guides these fields, exactly like a waveguide.
   ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/b8861f8f-9e6a-4b40-a00c-1d5279f40021)
 
