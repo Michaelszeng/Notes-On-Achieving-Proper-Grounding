@@ -37,7 +37,7 @@ https://www.youtube.com/watch?v=ySuUZEjARPY
     - This PCB was emitting tons of EMI + not working.
     - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/42ed3d25-6915-4091-be4c-6428265a57d0)
     - Notice: traces crossing vertically and horizontally on adjacent layers
-      - These is is like routing across a massive split in the GND plane
+      - This is like routing across a massive split in the GND plane
       - Traces in each layer were trying to use each other as return paths --> cross-talk
     - SOLUTION: if you MUST route traces like this on adjacent layers, put GND traces (shown in white) between the adjacent signal traces on both layers
       - ![image](https://github.com/Michaelszeng/Notes-On-Achieving-Proper-Grounding/assets/35478698/a151a9ba-3b61-4cf6-8a61-e78bd81ff5fa)
@@ -63,6 +63,10 @@ https://www.youtube.com/watch?v=ySuUZEjARPY
   - Keep different operating voltages in different places
   - For inter-board conns, put conns as close to IC as possible (or noise will go into next board + wires will act as antennas --> EMI failure)
   - Avoid routing traces of different voltage/type in an area
+
+- Keeping loops small (source: https://www.protoexpress.com/blog/7-pcb-design-tips-solve-emi-emc-issues/)
+  - Faraday's law states that flux is proportional to area of a conducting loop. flux --> EMI
+  - Therefore, for signals and power lines, imagine the loop created by forward path and return path. Place components to minimize this loop size.
 
 ## PRACTICAL TAKE-AWAYS:
 - Route signals with respect to GND (or PWR) like you actually mean it (have a low-impedance GND nearby)
